@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smiley Face Canvas</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="400" height="400" style="border:1px solid #d3d3d3;"></canvas>
+
+    <script>
+        const canvas = document.getElementById("myCanvas");
+        const ctx = canvas.getContext("2d");
+
+        // Background color
+        ctx.fillStyle = "#90EE90";  // Light green
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Smiley face (circle)
+        ctx.beginPath();
+        ctx.arc(200, 150, 100, 0, Math.PI * 2, true); // Outer circle
+        ctx.fillStyle = "yellow";
+        ctx.fill();
+        ctx.closePath();
+
+        // Eyes
+        ctx.beginPath();
+        ctx.arc(170, 130, 10, 0, Math.PI * 2, true); // Left eye
+        ctx.arc(230, 130, 10, 0, Math.PI * 2, true); // Right eye
+        ctx.fillStyle = "black";
+        ctx.fill();
+        ctx.closePath();
+
+        // Nose
+        ctx.beginPath();
+        ctx.moveTo(200, 140);
+        ctx.lineTo(200, 170);
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        ctx.closePath();
+
+        // Mouth
+        ctx.beginPath();
+        ctx.arc(200, 180, 40, 0, Math.PI, false);  // Smile (half-circle)
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        ctx.closePath();
+
+        // Text
+        ctx.font = "20px Arial";
+        ctx.fillStyle = "green";
+        ctx.textAlign = "center";
+        ctx.fillText("The Canvas brought me to life!", 200, 300);
+    </script>
+</body>
+
+</html>
